@@ -1,3 +1,7 @@
+# Autor: Alexander Herbrich
+# Wann: 10.02.16
+# Thema: Turtle "Hexagon"
+
 from turtle import *
 
 def hexagon():

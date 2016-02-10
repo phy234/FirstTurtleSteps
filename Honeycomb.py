@@ -1,3 +1,7 @@
+# Autor: Alexander Herbrich
+# Wann: 10.02.16
+# Thema: Turtle "Honeycomb"
+
 from turtle import *
 
 def flowerdraw(a = ("orange"), b = ("brown"), c = (2.5), d = (80), e = (60)):
