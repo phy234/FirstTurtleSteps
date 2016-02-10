@@ -1,9 +1,9 @@
 from turtle import *
 
-def flowerdraw(fillcolor = fillcolor("orange")):
+def flowerdraw(a = ("orange")):
     pencolor("brown")
     pensize(2.5)
-    fillcolor
+    fillcolor(a)
     begin_fill()
     lt(60)
     fd(80)
@@ -19,10 +19,10 @@ def flowerdraw(fillcolor = fillcolor("orange")):
     fd(80)
     end_fill()
 
-def flowerdraw2(fillcolor = fillcolor("orange")):
+def flowerdraw2(b = ("orange")):
     pencolor("brown")
     pensize(2.5)
-    fillcolor
+    fillcolor(b)
     begin_fill()
     rt(60)
     fd(80)
@@ -44,7 +44,7 @@ def flower(flowerdraw, flowerdraw2):
     lt(90)
     fd(40)
     pd()
-    flowerdraw(fillcolor("gold"))
+    flowerdraw(("gold"))
     end_fill()
     pu()
     home()
@@ -53,7 +53,7 @@ def flower(flowerdraw, flowerdraw2):
     lt(90)
     fd(160)
     pd()
-    flowerdraw(fillcolor("orange"))
+    flowerdraw()
     pu()
     home()
     # Zweites Sechseck
@@ -63,7 +63,7 @@ def flower(flowerdraw, flowerdraw2):
     rt(90)
     fd(40)
     pd()
-    flowerdraw(fillcolor("orange"))
+    flowerdraw()
     pu()
     home()
     # Drittes Sechseck
@@ -79,7 +79,7 @@ def flower(flowerdraw, flowerdraw2):
     rt(90)
     fd(160)
     pd()
-    flowerdraw(fillcolor("orange"))
+    flowerdraw()
     pu()
     home()
     # Fuenftes Sechseck
