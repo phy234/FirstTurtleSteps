@@ -3,104 +3,95 @@
 # Thema: Turtle "Honeycomb"
 
 from turtle import *
+from math import sqrt
 
-def flowerdraw(a = ("orange"), b = ("brown"), c = (2.5), d = (80), e = (60)):
-    pencolor(b)
-    pensize(c)
-    fillcolor(a)
+# ========================
+# = Draws a single petal =
+# ========================
+
+def drawFlower(a="orange", b="brown", penSize=2.5, size=80, rightTurn=False):
+    color(b,a)
+    pensize(penSize)
     begin_fill()
-    lt(e); fd(d)
-    lt(e); fd(d)
-    lt(e); fd(d)
-    lt(e); fd(d)
-    lt(e); fd(d)
-    lt(e); fd(d)
-    end_fill()
-
-def flowerdraw2(a = ("orange"), b = ("brown"), c = (2.5), d = (80), e = (60)):
-    pencolor(b)
-    pensize(c)
-    fillcolor(a)
-    begin_fill()
-    rt(e); fd(d)
-    rt(e); fd(d)
-    rt(e); fd(d)
-    rt(e); fd(d)
-    rt(e); fd(d)
-    rt(e); fd(d)
-    end_fill()
-
-def flower(flowerdraw, flowerdraw2):
-    pu()
-    fd(69)
-    lt(90)
-    fd(40)
     pd()
-    flowerdraw(("gold"))
-    end_fill()
+    for i in range(0,6):
+        rt(60) if (rightTurn) else lt(60) 
+        fd(size)
     pu()
+    end_fill()
+
+def goHome(offsetX=0, offsetY=0):
     home()
+    fd(offsetX)
+    lt(90)
+    fd(offsetY)
+    rt(90)
+
+# ========================
+# = Draws a whole flower =
+# ========================
+def flower(drawFlower,size=80, offsetX=0, offsetY=0):
+    base = size * sqrt(3)
+    
     # Erstes Sechseck
     pu()
+    goHome(offsetX, offsetY)
+    fd(base/2)
     lt(90)
-    fd(160)
-    pd()
-    flowerdraw()
-    pu()
-    home()
+    fd(size/2)
+    drawFlower("gold", size=size)
+
     # Zweites Sechseck
     pu()
-    lt(180)
-    fd(69)
-    rt(90)
-    fd(40)
-    pd()
-    flowerdraw()
-    pu()
-    home()
+    goHome(offsetX, offsetY)
+    lt(90)
+    fd(size*2)
+    drawFlower(size=size)
+
     # Drittes Sechseck
     pu()
+    goHome(offsetX, offsetY)
+    lt(180)
+    fd(base/2)
     rt(90)
-    fd(160)
-    pd()
-    flowerdraw2()
-    pu()
-    home()
+    fd(size/2)
+    drawFlower(size=size)
+    
     # Viertes Sechseck
     pu()
+    goHome(offsetX, offsetY)
     rt(90)
-    fd(160)
-    pd()
-    flowerdraw()
-    pu()
-    home()
+    fd(size*2)
+    drawFlower(size=size,rightTurn=True)
+
     # Fuenftes Sechseck
     pu()
-    fd(69)
-    lt(90)
-    fd(40)
-    pd()
-    flowerdraw2()
-    pu()
-    home()
+    goHome(offsetX, offsetY)
+    rt(90)
+    fd(size*2)
+    drawFlower(size=size)
+
     # Sechstes Sechseck
     pu()
+    goHome(offsetX, offsetY)
+    fd(base/2)
     lt(90)
-    fd(160)
-    pd()
-    flowerdraw2()
-    pu()
-    home()
+    fd(size/2)
+    drawFlower(size=size,rightTurn=True)
+
     # Siebtes Sechseck
     pu()
-    fd(34.5)
+    goHome(offsetX, offsetY)
     lt(90)
-    fd(20)
-    pd()
-    a = 1
-    while (a == 1):
-        pd()
-        flowerdraw(("orange"), ("brown"), (2.5), (40), (60))
-        pu()
-    # Kleines Sechseck
-flower(flowerdraw, flowerdraw2)
+    fd(size*2)
+    drawFlower(size=size,rightTurn=True)
+
+size = numinput("Laenge der Kanten","Wie lang soll die Kantenlaenge sein?")
+flower(drawFlower, size=size, offsetX=0, offsetY=0)
+flower(drawFlower, size=size, offsetX=size*3*sqrt(3), offsetY=0)
+flower(drawFlower, size=size, offsetX=size*1.5*sqrt(3), offsetY=size*4.5)
+flower(drawFlower, size=size, offsetX=size*1.5*sqrt(3), offsetY=-size*4.5)
+flower(drawFlower, size=size, offsetX=-size*3*sqrt(3), offsetY=0)
+flower(drawFlower, size=size, offsetX=-size*1.5*sqrt(3), offsetY=size*4.5)
+flower(drawFlower, size=size, offsetX=-size*1.5*sqrt(3), offsetY=-size*4.5)
+flower(drawFlower, size=size, offsetX=0, offsetY=0) 
