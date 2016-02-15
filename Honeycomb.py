@@ -86,6 +86,7 @@ def flower(drawFlower,size=80, offsetX=0, offsetY=0):
     fd(size*2)
     drawFlower(size=size,rightTurn=True)
 
+speed(0)
 size = numinput("Laenge der Kanten","Wie lang soll die Kantenlaenge sein?")
 flower(drawFlower, size=size, offsetX=0, offsetY=0)
 flower(drawFlower, size=size, offsetX=size*3*sqrt(3), offsetY=0)
